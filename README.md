@@ -284,3 +284,43 @@ Esta directiva usada en Vue es el equivalente al uso de una estructura condicion
     </template>
 
 Si el valor recibido por la directiva es true, se renderizara el codigo HTML del componente en el navegador.
+
+Como complemento es posible añadir a un nuevo elemento HTML la directiva v-else, la cual renderizara dicho elemento en caso que la condicion de la directiva v-if no se cumpla.
+
+    <div v-if="false">
+        Nothing to print
+    </div>
+    <div v-else>
+        Hello World
+    </div>
+
+## Propiedades computadas
+
+En Vue los datos se suelen validar mediante propiedades computadas, las cuales son funciones que se ejecutan automaticamente cuando se modifica el estado de alguna propiedad.
+
+Las propiedades computadas se agregan dentro de la propiedad computed.
+
+    computed: {
+        invalidName() {
+            return this.name.length < 1
+        }
+
+        invalidLastName() {
+            return this.lastName.length < 1
+        }
+    }
+
+## Referencias con Vue
+
+Para agregar una referencia a un elemento HTML se usa el atributo ref.
+
+    <input 
+        type="text"
+        name="name"
+        ref="name"/>
+
+Una vez referenciado el elemento, este podra ser manipulado desde el codigo JS mediante la siguiente declaracion.
+
+    this.$refs.name.focus()
+
+Mediante el ejemplo anterior se define que cada vez que un formulario sea enviado, el control que contenga la propiedad ref junto al valor name, sera enfocado de forma automatica.
